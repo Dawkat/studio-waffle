@@ -1,0 +1,15 @@
+body{
+background-color: salmon;
+}
+
+.Countdown{
+    color: rgb(135, 235, 188);
+    font-size: 50px;
+}
+
+
+.funWithButtons{
+border-radius: 5px;
+background-color: rgb(0, 255, 179);
+border-color: rgb(16, 182, 233);
+}
