@@ -1,0 +1,17 @@
+body{
+background-color: rgb(114, 218, 250);
+}
+
+.Countdown{
+    color: rgba(0, 0, 0, 0.767);
+    font-size: 50px;
+}
+
+
+.Button{
+width: 100px;
+height: 100px;
+border-radius:100px;
+background-color: rgb(255, 0, 0);
+border-color: rgba(0, 0, 0, 0.733);
+}
