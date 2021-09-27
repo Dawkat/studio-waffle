@@ -1,0 +1,20 @@
+body{
+background-color: cadetblue;
+}
+
+.First{
+    border-radius: 5px;
+    border-color: lightcoral;
+    margin-left: 20px;
+}
+
+.Last{
+    border-radius: 5px;
+    border-color: lightcoral;
+    margin-left: 25px;
+}
+
+.Badge{
+    border-radius: 5px;
+    border-color: lightcoral;
+}

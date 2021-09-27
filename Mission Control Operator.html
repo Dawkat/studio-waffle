@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Dawson Katzer-->
+    <!--links to the JavaScript file-->
+    <script src="Mission Control Operator.js"></script>
+    <!--links to the css file-->
+    <link href="Mission Control Operator.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Operator</title>
+</head>
+<body>
+<h1>Mission Control Operator</h1>
+<p>Welcome please login to see more.
+<br>
+<!--this creates the submit button-->
+<form id="credSubmit" onsubmit="return false">
+    <!--These will update using the JavaScript code-->
+    First name: <input type="text" id="Firstname" class="First"/> 
+    <br>
+    Last name: <input type="text" id="Lastname" class="Last"/>
+    <br>
+    Badge number: <input type="number" id="Badgenumber" class="Badge"/>
+    <br>
+    <!--when the button is clicked, it will run the JavaScript code-->
+    <input type="submit" onclick="checkCreds();"/>
+</form>
+
+<center>
+<p id= "loginStatus" class="loginID">Status of Login...</p>
+</center>
+
+
+
+
+
+</body>
+</html>
