@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Dawson Katzer-->
+    <!--these link Javascript and the css file to this html file-->
+    <link href="Event Driven Programming.css" rel="stylesheet" type="text/css">
+    <script src="Event Driven Programming.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <!--centers content-->
+    <center>
+<h1>UAT Space Program</h1>
+<!--Image of UAT Space Program logo-->
+<img src="UATspaceLogo.jpg" class="image">
+<p class="dataandreadings">Data and Readings</p>
+<table id="data" border="2" width="40%" style="background-color:white;">
+    <!--columns width-->
+<col style="width: 10%;">
+<col style="width: 10%;">
+    <thead>
+        <tr>
+            <!--names of the colums-->
+            <th>Data type</th>
+            <th>Reading</th>
+        </tr>
+    </thead>
+    <tbody style="font-weight: bolder;" >
+        <!--names of the rows-->
+        <tr id="seconds"><td>Time Elapsed:</td><td>15 seconds</td>
+        <tr id="latitude"><td>Latitude:</td><td>0</td>
+        <tr id="longitude"><td>Longitude:</td><td>0</td>
+        <tr id="gps_altitude"><td>GPS Altitude:</td><td>0</td>
+        <tr id="bmpSensor_altitude"><td>BMP Sensor Altitude:</td><td>30383.04</td>
+        <tr id="bmpSensor_pressure"><td>BMP Sensor Pressure:</td><td>2.24</td>
+        <tr id="bmpSensor_temp"><td>BMP Sensor Temp:</td><td>0</td>
+        <tr id="bdigSensor_temp"><td>Digital Sensor Temp:</td><td>24.12</td>
+        <tr id="cssSensor_temp"><td>CSS Sensor Temp:</td><td>25</td>
+        <tr id="cssSensor_eCO2"><td>CSS Sensor eCO2:</td><td>400</td>
+        <tr id="cssSensor_TVOC"><td>CSS Sensor TVOC:</td><td>0</td>
+        <tr id="UV"><td>UV:</td><td>0</td>
+        <tr id="accelX"><td>accelX:</td><td>-0.87</td>
+        <tr id="accelY"><td>accelY:</td><td>-0.02</td>
+        <tr id="accelZ"><td>accelZ:</td><td>9.61</td>
+        <tr id="Magnetic X"><td>Magnetic X:</td><td>0.13</td>
+        <tr id="Magnetic Y"><td>Magnetic Y:</td><td>0.57</td>
+        <tr id="Magnetic Z"><td>Magnetic Z:</td><td>-0.24</td>
+        <tr id="Gyro X"><td>Gyro X:</td><td>4.66</td>
+        <tr id="Gyro Y"><td>Gyro Y:</td><td>0.01</td>
+        <tr id="Gyro Z"><td>Gyro Z:</td><td>-0.4</td>
+        </tbody>
+    </tbody>
+</table>
+<!--start and stop buttons are located here-->
+<button class="start" id="startbutton" onclick="start();">Start</button>
+<button class="stop" id="stopbutton" onclick="stop();" disabled="true">stop</button>
+<div class="sound">Want to hear what it sounds like on a space station? <br>Click the button below!</div>
+<br>
+<!--class calls for the code in the CSS file-->
+<!--onclick calls for the code in the JavaScript file -->
+<!--&#9658 creates a play button symbol-->
+<button class="sound" onclick="playStation();">Space Station Sound <br> &#9658; </button>
+</center>
+</body>
+</html>
