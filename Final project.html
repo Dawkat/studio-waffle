@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Dawson Katzer-->
+    <!--these link Javascript and the css file to this html file-->
+    <link href="Final project.css" rel="stylesheet" type="text/css">
+    <script src="Final project.js"></script>
+    <script src="DataLoader.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <!--centers content-->
+    <center>
+<!--Image of UAT Space Program logo-->
+<img src="UATspaceLogo.jpg" class="image">
+<h1 style="color: white; font-size: 50px; margin-top: 5px;">UAT Space Program</h1>
+
+<p class="dataandreadings">Data and Readings</p>
+<table id="data" border="2" width="40%" style="background-color:white;">
+    <!--columns width-->
+<col style="width: 10%;">
+<col style="width: 10%;">
+    <thead>
+        <tr>
+            <!--names of the colums-->
+            <th>Data type</th>
+            <th>Reading</th>
+        </tr>
+    </thead>
+    <tbody style="font-weight: bolder;" >
+        <!--names of the rows-->
+        <tr id="seconds"><td>Seconds</td><td>0</td>
+        <tr id="latitude"><td>Latitude:</td><td>0</td>
+        <tr id="longitude"><td>Longitude:</td><td>0</td>
+        <tr id="gps_altitude"><td>GPS Altitude:</td><td>0</td>
+        <tr id="bmpSensor_altitude"><td>BMP Sensor Altitude:</td><td>0</td>
+        <tr id="bmpSensor_pressure"><td>BMP Sensor Pressure:</td><td>0</td>
+        <tr id="bmpSensor_temp"><td>BMP Sensor Tempature:</td><td>0</td>
+        <tr id="digSensor_temp"><td>Digital Sensor Tempature:</td><td>0</td>
+        <tr id="cssSensor_temp"><td>CSS Sensor Tempature:</td><td>0</td>
+        <tr id="cssSensor_eCO2"><td>CSS Sensor eCO2:</td><td>0</td>
+        <tr id="cssSensor_TVOC"><td>CSS Sensor TVOC:</td><td>0</td>
+        <tr id="UV"><td>UV:</td><td>0</td>
+        <tr id="accelX"><td>Accel X:</td><td>0</td>
+        <tr id="accelY"><td>Accel Y:</td><td>0</td>
+        <tr id="accelZ"><td>Accel Z:</td><td>0</td>
+        <tr id="magneticX"><td>Magnetic X:</td><td>0</td>
+        <tr id="magneticY"><td>Magnetic Y:</td><td>0</td>
+        <tr id="magneticZ"><td>Magnetic Z:</td><td>0</td>
+        <tr id="gyroX"><td>Gyro X:</td><td>0</td>
+        <tr id="gyroY"><td>Gyro Y:</td><td>0</td>
+        <tr id="gyroZ"><td>Gyro Z:</td><td>0</td>
+        </tbody>
+    </tbody>
+</table>
+<!--start and stop buttons are located here-->
+<input class="start" id="startButton" type="button"value="Start" onclick="start();"/>
+<input class="stop" id="stopButton" type="button"value="Stop" onclick="stop();" disabled=true/>
+<div class="sound">Want to hear what it sounds like on a space station? <br>Click the button below!</div>
+<br>
+<!--class calls for the code in the CSS file-->
+<!--onclick calls for the code in the JavaScript file -->
+<!--&#9658 creates a play button symbol-->
+<button class="sound" onclick="playStation();">Space Station Sound <br> &#9658; </button>
+</center>
+<script>
+//this is the timer set to 5 seconds
+var theTime=new Date();
+var tempTime= new Date();
+var time_interval=5000;
+var last_interation=0;
+var running=true;
+var index=0;
+var timer;
+var data=getData();
+
+function updateDisplay(){
+    theTime=new Date();
+    console.log(
+        "display :" +
+        (theTime.getHours()<10?"0"+theTime.getHours(): theTime.getHours()) +
+        ":" + (theTime.getMinutes()<10? "0" + theTime.getMinutes(): theTime.getMinutes()) +
+        ":" + (theTime.getMinutes()<10? "0" + theTime.getMinutes(): theTime.getMinutes())
+    ); 
+//this targets specific id's in the rows.
+var timeRead=data[index].time_seconds;
+        if(timeRead>=10){
+            document.getElementById("data").rows["seconds"].innerHTML=dataRow("Time elapsed", data[index].time_seconds, "seconds");
+            document.getElementById("data").rows["latitude"].innerHTML=dataRow("Latitude", data[index].latitude, "");
+            document.getElementById("data").rows["longitude"].innerHTML=dataRow("Longitude", data[index].longitude, "");
+            document.getElementById("data").rows["gps_altitude"].innerHTML=dataRow("GPS Altitude", data[index].gps_altitude, "");
+            document.getElementById("data").rows["bmpSensor_altitude"].innerHTML=dataRow("BMP Sensor Altitude", data[index].bmpSensor_altitude, "");
+            document.getElementById("data").rows["bmpSensor_pressure"].innerHTML=dataRow("BMP Sensor Pressure", data[index].bmpSensor_pressure, "");
+            document.getElementById("data").rows["bmpSensor_temp"].innerHTML=dataRow("BMP Sensor Tempature", data[index].bmpSensor_temp, "");
+            document.getElementById("data").rows["digSensor_temp"].innerHTML=dataRow("Digital Sensor Tempature", data[index].digSensor_temp, "");
+            document.getElementById("data").rows["cssSensor_temp"].innerHTML=dataRow("CSS Sensor Tempature", data[index].cssSensor_temp, "");
+            document.getElementById("data").rows["cssSensor_eCO2"].innerHTML=dataRow("CSS Sensor eCO2", data[index].cssSensor_eCO2, "");
+            document.getElementById("data").rows["cssSensor_TVOC"].innerHTML=dataRow("CSS Sensor TVOC", data[index].cssSensor_TVOC, "");
+            document.getElementById("data").rows["UV"].innerHTML=dataRow("UV", data[index].UV, "");
+            document.getElementById("data").rows["accelX"].innerHTML=dataRow("Accel X", data[index].accelX, "");
+            document.getElementById("data").rows["accelY"].innerHTML=dataRow("Accel Y", data[index].accelY, "");
+            document.getElementById("data").rows["accelZ"].innerHTML=dataRow("Accel Z", data[index].accelZ, "");
+            document.getElementById("data").rows["magneticX"].innerHTML=dataRow("Magnetic X", data[index].magneticX, "");
+            document.getElementById("data").rows["magneticY"].innerHTML=dataRow("Magnetic Y", data[index].magneticY, "");
+            document.getElementById("data").rows["magneticZ"].innerHTML=dataRow("Magnetic Z", data[index].magneticZ, "");
+            document.getElementById("data").rows["gyroX"].innerHTML=dataRow("Gyro X", data[index].gyroX, "");
+            document.getElementById("data").rows["gyroY"].innerHTML=dataRow("Gyro Y", data[index].gyroY, "");
+            document.getElementById("data").rows["gyroZ"].innerHTML=dataRow("Gyro Z", data[index].gyroZ, "");
+
+            if (index<499){
+                index++;
+        }
+            else{
+                index=0;
+        }
+    }
+//this says to start the timer at 10 seconds.
+document.getElementById("time").innerHTML=
+    (theTime.getHours()<10?"0"+ theTime.getHours(): theTime.getHours())+
+    ":" + (theTime.getMinutes()<10? "0" + theTime.getMinutes(): theTime.getMinutes()) +
+    ":" + (theTime.getMinutes()<10? "0" + theTime.getMinutes(): theTime.getMinutes())
+}
+
+//this says that when the start button is pressed the stop button becomes clickable.
+function stop(){
+    clearInterval(timer);
+    document.getElementById("startButton").disabled=false;
+    document.getElementById("stopButton").disabled=true;}
+//this says that when the stop button is pressed the start button becomes clickable.
+function start(){
+    document.getElementById("data").rows["seconds"].innerHTML="Reading data...";
+    index=0;
+    timer=setInterval(updateDisplay, time_interval);
+    document.getElementById("startButton").disabled=true;
+    document.getElementById("stopButton").disabled=false;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

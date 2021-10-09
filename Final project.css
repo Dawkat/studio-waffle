@@ -1,0 +1,48 @@
+body{
+background-color: cadetblue;
+}
+
+.First{
+    border-radius: 5px;
+    border-color: lightcoral;
+    margin-left: 20px;
+}
+
+.Last{
+    border-radius: 5px;
+    border-color: lightcoral;
+    margin-left: 25px;
+}
+
+.Badge{
+    border-radius: 5px;
+    border-color: lightcoral;
+}
+.sound{
+    margin-top: 20px;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 20px;
+}
+.table{
+    border-radius: 1px;
+}
+.image{
+    border-radius: 20px;
+}
+.start{
+    border-radius: 10px;
+    font-size: 30px;
+    border-style: none;
+    margin-top: 10px;
+}
+.stop{
+    border-radius: 10px;
+    font-size: 30px;
+    border-style: none;
+    margin-top: 10px;
+}
+
+.dataandreadings{
+    font-size: 40px;
+}
